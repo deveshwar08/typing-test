@@ -15,6 +15,14 @@
         <div class='timer' id="timer">
             
         </div>
+        
+        <div id='chart-div'></div>
+        <div id='difficulty'>
+            <h3>Select your difficulty level</h3>
+            <input type='radio' name='difficulty' id='easy' value='Easy'checked/><label for="easy">Easy</label>
+            <input type='radio' name='difficulty' id='difficult' value='Difficult'/><label for="difficult">Difficult</label>
+            <button onclick='toggleDifficulty()'>Change difficulty</button>
+        </div>
         <h3>Para: </h3>
         <div class="paragraph" id="paragraph">
 
@@ -33,6 +41,7 @@
             <h3 id='high-speed'></h3>
         </div>
     </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="index.js"></script>
 </body>
 
