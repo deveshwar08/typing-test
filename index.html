@@ -24,10 +24,10 @@
             <button onclick='toggleDifficulty()'>Change difficulty</button>
         </div>
         <h3>Para: </h3>
-        <div class="paragraph" id="paragraph">
+        <div class="paragraph" id="paragraph" oncopy="return false" oncut="return false">
 
         </div>
-        <div class="input-text">
+        <div class="input-text" onpaste="return false">
             <textarea id='input-area' class="input-area" placeholder="Type out the given para..." oninput="currentInput()"
                 onfocus="startTest()"></textarea>
             <button onclick="resetValues()">
