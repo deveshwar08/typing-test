@@ -2,9 +2,10 @@ let s = 0;
 let m = 0;
 let h = 0;
 let testStarted = false;
-let testEnded = false;
+let testEnded = true;
+let t;
 function resetValues(){
-    testEnded = false;
+    testEnded = true;
     testStarted = false;
     s = 0;
     m = 0;
@@ -13,6 +14,8 @@ function resetValues(){
     document.getElementById('paragraph').innerHTML = '';
     getPara();
     document.getElementById('input-area').value = '';
+    document.getElementById('timer').innerText = '';
+    clearTimeout(t);
 }
 function timer(){
     if(!testEnded){
@@ -27,7 +30,7 @@ function timer(){
         }
         document.getElementById('timer').innerText = h+":"+m+":"+s;
     }
-    setTimeout(timer,1000);
+    t = setTimeout(timer,1000);
 }
 
 function getPara() {
@@ -71,11 +74,23 @@ function currentInput() {
 }
 function startTest(){
     if(!testStarted){
+        testEnded = false;
         timer();
-        testStarted  =true;
+        testStarted  = true;
     }
 }
 function gameOver(speed){
     document.getElementById('result').innerText = "Your speed: "+speed+" char/s";
+    let highSpeed = localStorage.getItem('Speed');
+    if(speed > highSpeed)
+        localStorage.setItem('Speed', speed);
+    displayHighScore();
+}
+function displayHighScore(){
+    if(localStorage.getItem('Speed')){
+        let highSpeed = localStorage.getItem('Speed');
+        document.getElementById('high-speed').innerText = "Your highest speed: "+highSpeed+" char/s";
+    }
 }
 getPara();
+displayHighScore();
