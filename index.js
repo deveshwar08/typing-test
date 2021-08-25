@@ -66,9 +66,9 @@ function accuracySpeed(){
 function getPara() {
     var xmlHttp = new XMLHttpRequest();
     if(difficulty == 'Easy')
-        xmlHttp.open("GET", 'http://metaphorpsum.com/paragraphs/1/10', false);
+        xmlHttp.open("GET", 'https://baconipsum.com/api/?type=all-meat&paras=1&sentences=10&format=text&start-with-lorem=0', false);
     else
-        xmlHttp.open("GET","http://metaphorpsum.com/paragraphs/1/20", false);
+        xmlHttp.open("GET","https://baconipsum.com/api/?type=all-meat&paras=1&sentences=20&format=text&start-with-lorem=0", false);
     xmlHttp.send(null);
     let para = xmlHttp.responseText;
     para.split('').forEach(ch => {
